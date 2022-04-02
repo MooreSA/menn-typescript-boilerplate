@@ -4,27 +4,19 @@ services:
     build:
       context: ./src
       dockerfile: Dockerfile
-    image: next-feature-demo
-    environment:
-      MONGO_USERNAME: root
-      MONGO_PASSWORD: example
-      MONGO_HOSTNAME: db
-      MONGO_PORT: 27017
-      MONGO_DB: test
+    image: next-js-typescript
     restart: always
     volumes:
       - ./src:/app
     ports:
       - "3000:3000"
-    networks:
-      - next-feature-demo
 
   db:
     build:
       context: ./mongo
       dockerfile: Dockerfile
     restart: always
-    image: next-feature-db
+    image: next-mongo-db
     volumes:
       - data-volume:/data/db
     environment:
@@ -34,9 +26,9 @@ services:
     ports:
       - "27017:27017"
     networks:
-      - next-feature-demo
+      - next-network
 networks:
-  next-feature-demo:
+  next-network:
     driver: bridge
 
 volumes:
