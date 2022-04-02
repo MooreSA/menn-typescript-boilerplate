@@ -11,8 +11,8 @@ COPY . .
 RUN npm run build 
 
 # Expose the port
-EXPOSE 443
-ENV PORT 443
+EXPOSE 80
+ENV PORT 80
 
 # Run the project
-CMD [ "npm", "run", "start", "-p", "443" ]
+CMD [ "npm", "run", "start" ]

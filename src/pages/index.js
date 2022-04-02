@@ -6,6 +6,7 @@ export default function Home() {
     <div className={styles.container}>
       <Head>
         <title>Deployment Ready MENN Boilerplate</title>
+
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
